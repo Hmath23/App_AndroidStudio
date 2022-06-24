@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Petar"
+    android:background="@color/melon">
+
+    <TextView
+        android:id="@+id/textViewImgRecurso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Inflar um recurso de imagem"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/liver"
+        android:textAlignment="center"/>
+
+    <ImageView
+        android:id="@+id/ImageViewPetar"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_below="@+id/textViewImgRecurso"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/petar"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/textViewImgRecursoXml"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ImageViewPetar"
+        android:text="Inflar um recurso XML"
+        android:layout_marginTop="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/liver"
+        android:textAlignment="center"/>
+
+    <ImageView
+        android:id="@+id/textViewImgPetarXml"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_below="@id/textViewImgRecursoXml"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@mipmap/ic_petar"/>
+
+</RelativeLayout>
