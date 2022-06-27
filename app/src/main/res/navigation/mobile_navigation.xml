@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_principal">
 
     <fragment
         android:id="@+id/nav_home"
         android:name="com.appturma.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
@@ -22,4 +23,29 @@
         android:name="com.appturma.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_principal"
+        android:name="com.appturma.ui.principal.PrincipalFragment"
+        android:label="@string/menu_principal"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_nav_principal_to_nav_petar"
+            app:destination="@id/nav_petar" />
+        <action
+            android:id="@+id/action_nav_principal_to_nav_recitas"
+            app:destination="@id/nav_receitas" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_petar"
+        android:name="com.appturma.Petar"
+        android:label="@string/menu_petar"
+        tools:layout="@layout/activity_petar" />
+
+    <fragment
+        android:id="@+id/nav_receitas"
+        android:name="com.appturma.Receitas"
+        android:label="@string/menu_receitas"
+        tools:layout="@layout/activity_receitas" />
 </navigation>

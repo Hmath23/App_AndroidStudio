@@ -15,7 +15,8 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_base_menu"
-        app:menu="@menu/activity_main_drawer" />
+        app:menu="@menu/activity_main_drawer"
+        android:background="@color/purple"/>
 
     <include
         android:id="@+id/app_bar_base_menu"

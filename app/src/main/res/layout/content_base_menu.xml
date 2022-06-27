@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar_base_menu">
+    tools:showIn="@layout/app_bar_base_menu"
+    android:background="@color/purple">
 
     <fragment
         android:id="@+id/nav_host_fragment_content_base_menu"

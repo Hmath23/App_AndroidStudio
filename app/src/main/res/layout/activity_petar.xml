@@ -7,6 +7,17 @@
     tools:context=".Petar"
     android:background="@color/melon">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="0"/>
+
+    <FrameLayout
+        android:id="@+id/petar_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <TextView
         android:id="@+id/textViewImgRecurso"
         android:layout_width="match_parent"
@@ -47,5 +58,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         app:srcCompat="@mipmap/ic_petar"/>
+
 
 </RelativeLayout>
