@@ -17,4 +17,8 @@
     <string name="menu_receitas">Receitas</string>
     <string name="menu_principal">Principal</string>
 
+    <string name="menu_dashboard">Dashboard</string>
+    <string name="menu_notifica">Notificações</string>
+
+
 </resources>
