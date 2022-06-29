@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
                 usuario = edtUsuario.getText().toString();
                 senha = edtSenha.getText().toString();
 
-                if (usuario.isEmpty() && senha.isEmpty()){
+                if (usuario.isEmpty() || senha.isEmpty()){
                     AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this).setTitle("Erro").setMessage("Favor preencher os campos").setPositiveButton("OK",null);
                     builder.create().show();
                 }
