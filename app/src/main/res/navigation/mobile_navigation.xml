@@ -28,7 +28,7 @@
         android:id="@+id/nav_principal"
         android:name="com.appturma.ui.principal.PrincipalFragment"
         android:label="@string/menu_principal"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_principal" >
         <action
             android:id="@+id/action_nav_principal_to_nav_petar"
             app:destination="@id/nav_petar" />

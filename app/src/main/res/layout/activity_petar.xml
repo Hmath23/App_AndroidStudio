@@ -17,12 +17,26 @@
         android:id="@+id/petar_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
+    <TextView
+        android:id="@+id/textViewPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Petar"
+        android:textSize="50sp"
+        android:shadowColor="@color/liver"
+        android:shadowDx="7"
+        android:shadowDy="7"
+        android:shadowRadius="20"
+        android:textStyle="bold"
+        android:textColor="@color/liver"
+        android:textAlignment="center"/>
     <TextView
         android:id="@+id/textViewImgRecurso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_below="@+id/textViewPrincipal"
         android:text="Inflar um recurso de imagem"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/liver"

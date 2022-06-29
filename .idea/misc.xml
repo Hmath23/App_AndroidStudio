@@ -3,25 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/drawable/botao_arredondado.xml" value="0.1" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/drawable/ic_menu_receitas.xml" value="0.276" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/drawable/ic_petar.xml" value="0.2785" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/drawable/side_nav_bar.xml" value="0.175" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/activity_base_menu.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/activity_cad_contatos.xml" value="0.28125" />
+        <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/activity_login.xml" value="0.28532608695652173" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/activity_petar.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/activity_principal.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/activity_receitas.xml" value="0.25" />
+        <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/activity_splash.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/app_bar_base_menu.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/content_base_menu.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/fragment_gallery.xml" value="0.2504528985507246" />
+        <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/fragment_home.xml" value="0.161231884057971" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/fragment_main.xml" value="0.33" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/fragment_menu_inferior.xml" value="0.1" />
+        <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/fragment_principal.xml" value="0.161231884057971" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/nav_header_base_menu.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/menu/activity_main_drawer.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/menu/base_menu.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2859375" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/mipmap-anydpi-v26/ic_atelie.xml" value="0.213" />
+        <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/mipmap-anydpi-v26/ic_atelie_login_round.xml" value="0.1475" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/mipmap-anydpi-v26/ic_atelie_round.xml" value="0.175" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.213" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/mipmap-anydpi-v26/ic_petar.xml" value="0.2855" />
