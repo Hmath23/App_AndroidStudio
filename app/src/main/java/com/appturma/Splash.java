@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class splash extends AppCompatActivity {
+public class Splash extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class splash extends AppCompatActivity {
     }
 
     private void mostrarLogin(){
-        Intent login = new Intent(splash.this,LoginActivity.class);
+        Intent login = new Intent(Splash.this,LoginActivity.class);
         startActivity(login);
         finish();
     }

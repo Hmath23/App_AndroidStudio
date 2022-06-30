@@ -14,7 +14,7 @@
         android:theme="@style/Theme.AppTurma.NoActionBar"
         tools:targetApi="31" >
         <activity
-            android:name=".splash"
+            android:name=".Splash"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

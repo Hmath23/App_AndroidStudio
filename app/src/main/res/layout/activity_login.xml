@@ -10,15 +10,44 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".LoginActivity"
     android:background="@color/melon">
+
     <RelativeLayout
         android:id="@+id/relativeLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginLeft="37dp"
-        android:layout_marginRight="37dp"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="37dp">
+
+        <EditText
+            android:id="@+id/editTextUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imgLogin"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:ems="10"
+            android:hint="Digite seu Usuário"
+            android:inputType="textPersonName" />
+
+
+        <EditText
+            android:id="@+id/editTextSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextUsuario"
+            android:layout_alignStart="@id/editTextUsuario"
+            android:layout_alignLeft="@id/editTextUsuario"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="17dp"
+            android:ems="10"
+            android:hint="Digite sua Senha"
+            android:inputType="textPassword" />
 
         <ImageView
             android:id="@+id/imgLogin"
@@ -26,33 +55,6 @@
             android:layout_height="250dp"
             android:layout_centerHorizontal="true"
             app:srcCompat="@mipmap/ic_atelie_login_round" />
-
-
-        <EditText
-            android:id="@+id/editTextUsuario"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Digite seu Usuário"
-            android:inputType="textPersonName"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/imgLogin"/>
-        <EditText
-            android:id="@+id/editTextSenha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/editTextUsuario"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignStart="@id/editTextUsuario"
-            android:layout_below="@id/editTextUsuario"
-            android:layout_marginTop="17dp"
-            android:ems="10"
-            android:hint="Digite sua Senha"
-            android:inputType="textPassword"/>
     </RelativeLayout>
     <Button
         android:id="@+id/btnLogin"
