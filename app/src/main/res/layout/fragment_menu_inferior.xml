@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:menu="@menu/bottom_nav_menu"
-        app:itemBackground="@color/tulip"/>
+        app:itemBackground="@color/eucalyptus"/>
     <fragment
         android:id="@+id/nav_bottom_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"

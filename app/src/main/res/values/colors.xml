@@ -7,11 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="lavender">#F8B6EF</color>
-    <color name="liver">#5c3636</color>
-    <color name="rosy_brown">#bb9090</color>
-    <color name="melon">#fabbae</color>
-    <color name="pale">#f99bcb</color>
-    <color name="tulip">#fa9190</color>
-    <color name="purple">#ffe6ff</color>
+    <color name="myrtle_green">#34806A</color>
+    <color name="hookers_green">#487065</color>
+    <color name="eucalyptus">#54CCAA</color>
+    <color name="aquamarine">#69FFD4</color>
+    <color name="pale_blue">#B5FFEA</color>
+
 </resources>

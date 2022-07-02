@@ -9,7 +9,7 @@
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/drawable/side_nav_bar.xml" value="0.175" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/activity_base_menu.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/activity_cad_contatos.xml" value="0.28125" />
-        <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/activity_login.xml" value="0.28532608695652173" />
+        <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/activity_login.xml" value="0.16" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/activity_petar.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/layout/activity_principal.xml" value="0.28125" />
@@ -26,16 +26,51 @@
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/menu/activity_main_drawer.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/menu/base_menu.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2859375" />
+        <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/mipmap-anydpi-v26/ic_HMTZ.xml" value="0.241" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/mipmap-anydpi-v26/ic_atelie.xml" value="0.213" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/mipmap-anydpi-v26/ic_atelie_login_round.xml" value="0.1475" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/mipmap-anydpi-v26/ic_atelie_round.xml" value="0.175" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.213" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/mipmap-anydpi-v26/ic_petar.xml" value="0.2855" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/mipmap-anydpi-v26/ic_receitas.xml" value="0.187" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/botao_arredondado.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_atelie_login_background.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_dashboard.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_home.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_menu_camera.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_menu_gallery.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_menu_petar.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_menu_principal.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_menu_receitas.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.3105" />
+        <entry key="app/src/main/res/drawable/ic_notifications.xml" value="0.3105" />
+        <entry key="app/src/main/res/drawable/ic_petar_background.xml" value="0.3105" />
+        <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.3105" />
+        <entry key="app/src/main/res/layout/activity_base_menu.xml" value="0.21331521739130435" />
+        <entry key="app/src/main/res/layout/activity_cad_contatos.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/layout/activity_petar.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/layout/activity_principal.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/layout/activity_receitas.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/layout/app_bar_base_menu.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/layout/content_base_menu.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/layout/fragment_menu_inferior.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/layout/fragment_principal.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/layout/nav_header_base_menu.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/menu/base_menu.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.33229166666666665" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

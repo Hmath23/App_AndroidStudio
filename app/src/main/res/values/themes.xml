@@ -2,13 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.AppTurma" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/liver</item>
-        <item name="colorPrimaryVariant">@color/liver</item>
-        <item name="colorOnPrimary">@color/melon</item>
+        <item name="colorPrimary">@color/myrtle_green</item>
+        <item name="colorPrimaryVariant">@color/myrtle_green</item>
+        <item name="colorOnPrimary">@color/aquamarine</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/pale</item>
-        <item name="colorSecondaryVariant">@color/tulip</item>
-        <item name="colorOnSecondary">@color/liver</item>
+        <item name="colorSecondary">@color/hookers_green</item>
+        <item name="colorSecondaryVariant">@color/aquamarine</item>
+        <item name="colorOnSecondary">@color/myrtle_green</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
