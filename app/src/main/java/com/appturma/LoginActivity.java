@@ -22,7 +22,7 @@ import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private String apiPath = "http://10.0.0.2/siteturma/usuarios/listar/";
+    private String apiPath = "http://10.0.2.2/future-web/usuarios/listar/";
     private JSONArray restulJsonArray;
     private int logado = 0;
     private String mensagem = "", strusuario = "", stremail = "";
@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                                 JSONObject jsonObj = null;
                                 for (int i=0; i < restulJsonArray.length();i++){
                                     jsonObj = restulJsonArray.getJSONObject(i);
-                                    logado = jsonObj.getInt("plogado");
+                                    logado = jsonObj.getInt("resultado");
                                 }
                                 switch (logado){
                                     case 1:
