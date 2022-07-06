@@ -19,15 +19,19 @@
         <item
             android:id="@+id/nav_principal"
             android:icon="@drawable/ic_menu_principal"
-            android:title="@string/menu_principal" />
+            android:title="@string/menu_principal"
+            android:textColor="@color/pale_blue"/>
+            />
         <item
             android:id="@+id/nav_petar"
             android:icon="@drawable/ic_menu_petar"
-            android:title="@string/menu_petar" />
+            android:title="@string/menu_petar"
+            android:textColor="@color/pale_blue"/>
         <item
             android:id="@+id/nav_receitas"
             android:icon="@drawable/ic_menu_receitas"
-            android:title="@string/menu_receitas" />
+            android:title="@string/menu_receitas"
+            android:textColor="@color/pale_blue"/>
 
     </group>
 </menu>
