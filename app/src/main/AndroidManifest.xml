@@ -21,7 +21,7 @@
             android:name=".BaseMenu"
             android:exported="false" />
         <activity
-            android:name=".Principal"
+            android:name=".Splash"
             android:exported="false" />
         <activity
             android:name=".Receitas"
@@ -39,7 +39,7 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".Splash"
+            android:name=".Principal"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,5 +47,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
