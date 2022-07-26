@@ -17,4 +17,9 @@ public class Petar extends Fragment {
         View root = inflater.inflate(R.layout.activity_petar,container,false);
         return root;
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
 }

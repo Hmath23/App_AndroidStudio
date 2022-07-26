@@ -81,6 +81,8 @@ public class LoginActivity extends AppCompatActivity {
                                 for (int i=0; i < restulJsonArray.length();i++){
                                     jsonObj = restulJsonArray.getJSONObject(i);
                                     logado = jsonObj.getInt("plogado");
+                                    stremail = jsonObj.getString("pnomecompleto");
+                                    strusuario = jsonObj.getString("pemail");
                                 }
                                 switch (logado){
                                     case 1:

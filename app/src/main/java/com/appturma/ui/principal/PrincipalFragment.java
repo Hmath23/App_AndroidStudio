@@ -24,10 +24,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.appturma.R;
+import com.appturma.databinding.FragmentPrincipalBinding;
 
 public class PrincipalFragment extends Fragment {
 
     private MainViewModel mViewModel;
+    private FragmentPrincipalBinding binding;
 
     public static PrincipalFragment newInstance() {
         return new PrincipalFragment();
@@ -37,33 +39,32 @@ public class PrincipalFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_principal, container, false);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        // TODO: Use the ViewModel
+        //return inflater.inflate(R.layout.fragment_principal, container, false);
+        binding = FragmentPrincipalBinding.inflate(inflater,container,false);
+        return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button btnReceitas = view.findViewById(R.id.btnReceitas);
-        Button btnPetar = view.findViewById(R.id.btnPetar);
 
-        btnReceitas.setOnClickListener(new View.OnClickListener() {
+        binding.btnReceitas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view).navigate(R.id.nav_receitas);
             }
         });
-        btnPetar.setOnClickListener(new View.OnClickListener() {
+        binding.btnPetar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view).navigate(R.id.nav_petar);
             }
         });
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }
