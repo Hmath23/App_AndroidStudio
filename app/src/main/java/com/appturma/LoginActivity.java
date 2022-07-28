@@ -81,8 +81,8 @@ public class LoginActivity extends AppCompatActivity {
                                 for (int i=0; i < restulJsonArray.length();i++){
                                     jsonObj = restulJsonArray.getJSONObject(i);
                                     logado = jsonObj.getInt("plogado");
-                                    stremail = jsonObj.getString("pnomecompleto");
-                                    strusuario = jsonObj.getString("pemail");
+                                    strusuario = jsonObj.getString("pnomecompleto");
+                                    stremail = jsonObj.getString("pemail");
                                 }
                                 switch (logado){
                                     case 1:
@@ -100,6 +100,8 @@ public class LoginActivity extends AppCompatActivity {
                                             public void onClick(DialogInterface dialogInterface, int i) {
                                                 if (logado == 1){
                                                     Intent base = new Intent(getApplicationContext(),BaseMenu.class);
+                                                    base.putExtra("usuario", strusuario.toString());
+                                                    base.putExtra("email", stremail.toString());
                                                     startActivity(base);
                                                     finish();
                                                 }

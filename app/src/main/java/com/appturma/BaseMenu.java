@@ -1,25 +1,44 @@
 package com.appturma;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.StringRequestListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import kotlin.text.UStringsKt;
 
 import com.appturma.databinding.ActivityBaseMenuBinding;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class BaseMenu extends AppCompatActivity {
+
+    private String apiPath = "http://10.0.2.2:8080/siteturma88/usuarios/sair/";
+    private JSONArray resultJsonArray;
+    private int logado = 0;
+    private String mensagem;
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityBaseMenuBinding binding;
+    private TextView txtnome, txtemail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +57,17 @@ public class BaseMenu extends AppCompatActivity {
         });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
+
+        //Referência ao cabeçalho do menu
+        View headerView = navigationView.getHeaderView(0);
+        txtnome = headerView.findViewById(R.id.textViewNomeUsuario);
+        txtemail = headerView.findViewById(R.id.textViewEmailUsuario);
+
+        //Recebe os dados do LoginActivity
+        Intent login = getIntent();
+        txtnome.setText(String.valueOf(login.getStringExtra("usuario")));
+        txtemail.setText(String.valueOf(login.getStringExtra("email")));
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -47,7 +77,64 @@ public class BaseMenu extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_base_menu);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.nav_logout) {
+                    sairApi();
+                }
+                return false;
+
+            }
+        });
     }
+
+    protected void sairApi(){
+        AndroidNetworking.post(apiPath)
+                .addBodyParameter("HTTP_ACCEPT","application/json")
+                .addBodyParameter("txtNomeCompleto",txtnome.getText().toString())
+                .addBodyParameter("txtEmail",txtemail.getText().toString())
+                .setTag("test")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsString(new StringRequestListener() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject != null){
+                                resultJsonArray = jsonObject.getJSONArray("RetornoDados");
+                                JSONObject jsonObj = null;
+                                jsonObj = resultJsonArray.getJSONObject(0);
+                                logado = jsonObj.getInt("plogado");
+                                if (logado == 1){
+                                    Intent login = new Intent(getApplicationContext(),LoginActivity.class);
+                                    startActivity(login);
+                                    finish();
+
+                                }
+                                else {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(BaseMenu.this)
+                                            .setTitle("Aviso")
+                                            .setMessage(mensagem)
+                                            .setPositiveButton("OK",null);
+                                    builder.create().show();
+                                }
+
+                            }
+                        }
+                        catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                    }
+                });
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
