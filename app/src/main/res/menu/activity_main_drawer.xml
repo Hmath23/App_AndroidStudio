@@ -4,7 +4,7 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <!-- <item
+        <!--<item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
@@ -30,6 +30,6 @@
             android:title="@string/menu_receitas"/>
         <item
             android:id="@+id/nav_logout"
-            android:title="logout"/>
+            android:title="@string/menu_logout"/>
     </group>
 </menu>

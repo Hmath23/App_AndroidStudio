@@ -19,6 +19,7 @@
 
     <string name="menu_dashboard">Dashboard</string>
     <string name="menu_notifica">Notificações</string>
+    <string name="menu_logout">Desconectar</string>
 
 
 </resources>

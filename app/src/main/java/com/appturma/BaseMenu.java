@@ -1,10 +1,13 @@
 package com.appturma;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.androidnetworking.AndroidNetworking;
@@ -81,12 +84,37 @@ public class BaseMenu extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.nav_logout) {
-                    sairApi();
+                    mensagem = "Deseja realmente sair?";
+                    AlertDialog.Builder builder = new AlertDialog.Builder(BaseMenu.this)
+                            .setTitle("Aviso")
+                            .setMessage(mensagem)
+                            .setNegativeButton("Não", null)
+                            .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    sairApi();
+                                }
+                            });
+                    builder.create().show();
                 }
                 return false;
-
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.base_menu,menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_base_menu);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
     }
 
     protected void sairApi(){
@@ -111,7 +139,6 @@ public class BaseMenu extends AppCompatActivity {
                                     Intent login = new Intent(getApplicationContext(),LoginActivity.class);
                                     startActivity(login);
                                     finish();
-
                                 }
                                 else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(BaseMenu.this)
@@ -119,6 +146,7 @@ public class BaseMenu extends AppCompatActivity {
                                             .setMessage(mensagem)
                                             .setPositiveButton("OK",null);
                                     builder.create().show();
+                                    mensagem = "Houve um problema ao desconectar, tente novamente";
                                 }
 
                             }
@@ -133,20 +161,5 @@ public class BaseMenu extends AppCompatActivity {
 
                     }
                 });
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.base_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_base_menu);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
     }
 }
