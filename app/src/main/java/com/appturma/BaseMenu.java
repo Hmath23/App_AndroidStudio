@@ -3,6 +3,7 @@ package com.appturma;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
+import com.appturma.ui.principal.PrincipalFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -37,7 +39,7 @@ public class BaseMenu extends AppCompatActivity {
     private String apiPath = "http://10.0.2.2:8080/siteturma88/usuarios/sair/";
     private JSONArray resultJsonArray;
     private int logado = 0;
-    private String mensagem;
+    private String mensagem, titulo;
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityBaseMenuBinding binding;
@@ -84,9 +86,11 @@ public class BaseMenu extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.nav_logout) {
+                    titulo = "Aviso";
                     mensagem = "Deseja realmente sair?";
+                    final View dialog = getLayoutInflater().inflate(R.layout.dialog_box,null);
                     AlertDialog.Builder builder = new AlertDialog.Builder(BaseMenu.this)
-                            .setTitle("Aviso")
+                            .setTitle(titulo)
                             .setMessage(mensagem)
                             .setNegativeButton("Não", null)
                             .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
@@ -100,6 +104,8 @@ public class BaseMenu extends AppCompatActivity {
                 return false;
             }
         });
+
+
     }
 
     @Override
@@ -139,6 +145,7 @@ public class BaseMenu extends AppCompatActivity {
                                     startActivity(login);
                                     finish();
                                 }
+
                                 else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(BaseMenu.this)
                                             .setTitle("Aviso")
@@ -156,9 +163,30 @@ public class BaseMenu extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onError(ANError anError) {
-
+                    public void onError(ANError anError){
+                        try {
+                            if (anError.getErrorCode() == 0){
+                                mensagem = "Problemas com a conexão!! \nTente Novamente.";
+                            }
+                            else {
+                                JSONObject jsonObject = new JSONObject(anError.getErrorBody());
+                                if (jsonObject.getJSONObject("RetornoDados").getInt("sucesso") == 0){
+                                    mensagem = "Usuário ou senha inválidos";
+                                }
+                            }
+                            AlertDialog.Builder builder = new AlertDialog.Builder(BaseMenu.this)
+                                    .setTitle("Aviso")
+                                    .setMessage(mensagem)
+                                    .setPositiveButton("OK",null);
+                            builder.create().show();
+                        }
+                        catch (Exception e){
+                            e.printStackTrace();
+                        }
+                        Log.d("BridgeUpdateService","error" + anError.getErrorCode() +anError.getErrorDetail());
                     }
+
+
                 });
     }
 }

@@ -35,6 +35,10 @@
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/mipmap-anydpi-v26/ic_petar.xml" value="0.2855" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/AppTurma/app/src/main/res/mipmap-anydpi-v26/ic_receitas.xml" value="0.187" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/drawable/botao_arredondado.xml" value="0.1865" />
+        <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/drawable/dialog.xml" value="0.111" />
+        <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/drawable/dialog_box.xml" value="0.2065" />
+        <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/drawable/ic_notifications.xml" value="0.2065" />
+        <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/drawable/side_nav_bar.xml" value="0.2065" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/layout/activity_base_menu.xml" value="0.1" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/layout/activity_cad_contatos.xml" value="0.1" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/layout/activity_login.xml" value="0.26132246376811596" />
@@ -43,11 +47,13 @@
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/layout/activity_receitas.xml" value="0.25" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/layout/app_bar_base_menu.xml" value="0.18" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/layout/content_base_menu.xml" value="0.28125" />
+        <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/layout/dialog_box.xml" value="0.28020833333333334" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/layout/fragment_home.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/layout/fragment_menu_inferior.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/layout/fragment_principal.xml" value="0.2608695652173913" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/layout/fragment_slideshow.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/layout/nav_header_base_menu.xml" value="0.28125" />
+        <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/layout/novasenha.xml" value="0.25" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/menu/activity_main_drawer.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/menu/base_menu.xml" value="0.28125" />
         <entry key="..\:/Users/matheus.hcsilva12/AndroidStudioProjects/App_AndroidStudio/app/src/main/res/menu/bottom_nav_menu.xml" value="0.28125" />
