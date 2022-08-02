@@ -16,6 +16,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
+import com.appturma.TrocaSenha;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -28,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private JSONArray restulJsonArray;
     private int logado = 0;
     private String mensagem = "", strusuario = "", stremail = "", newSenha ="";
-    EditText edtUsuario,edtSenha,edtNovaSenha;
+    EditText edtUsuario,edtSenha;
     Button btnLogin;
 
     @Override
@@ -38,7 +39,6 @@ public class LoginActivity extends AppCompatActivity {
 
         edtUsuario = findViewById(R.id.editTextUsuario);
         edtSenha = findViewById(R.id.editTextSenha);
-        edtNovaSenha = findViewById(R.id.editNovaSenha);
         btnLogin = findViewById(R.id.btnLogin);
 
         AndroidNetworking.initialize(getApplicationContext());
@@ -98,6 +98,9 @@ public class LoginActivity extends AppCompatActivity {
                                     case 2:
                                         mensagem = "Usuário já está conectado";
                                         break;
+                                    case 3:
+                                        mensagem = "Primeiro acesso. Altere sua senha";
+                                        break;
                                 }
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this)
                                         .setTitle("Aviso")
@@ -112,19 +115,14 @@ public class LoginActivity extends AppCompatActivity {
                                                     startActivity(base);
                                                     finish();
                                                 }
-                                                if (logado == 3 ){
-                                                    mensagem ="Este é seu Primeiro acesso.Cadastre uma nova senha";
-                                                    newSenha = edtNovaSenha.getText().toString();
-                                                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this)
-                                                            .setTitle("Aviso")
-                                                            .setMessage(mensagem)
-                                                            .setPositiveButton("Alterar", new DialogInterface.OnClickListener() {
-                                                                @Override
-                                                                public void onClick(DialogInterface dialog, int which) {
-                                                                    apiNovaSenha();
-                                                                }
-                                                            });
-                                                    builder.create().show();
+                                                else if (logado == 3 ){
+                                                    Intent troca = new Intent(getApplicationContext(),TrocaSenha.class);
+                                                    troca.putExtra("nomecompleto", strusuario.toString());
+                                                    troca.putExtra("usuario", edtUsuario.getText().toString());
+                                                    troca.putExtra("email", stremail.toString());
+                                                    startActivity(troca);
+                                                    finish();
+
                                                 }
                                             }
                                         });
@@ -161,62 +159,6 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-    protected void apiNovaSenha(){
-        AndroidNetworking.post(apiTres)
-                .addBodyParameter("HTTP_ACCEPT","application/json")
-                .addBodyParameter("txtNomeUsuario",edtUsuario.getText().toString())
-                .addBodyParameter("txtSenhaUsuario",edtSenha.getText().toString())
-                .setTag("test")
-                .setPriority(Priority.MEDIUM)
-                .build()
-                .getAsString(new StringRequestListener() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            if (jsonObject != null) {
-                                restulJsonArray = jsonObject.getJSONArray("RetornoDados");
-                                JSONObject jsonObj = null;
-                                jsonObj = restulJsonArray.getJSONObject(0);
-                                logado = jsonObj.getInt("sucesso");
-                                if (logado == 1) {
-                                    Intent login = new Intent(getApplicationContext(), LoginActivity.class);
-                                    startActivity(login);
-                                    finish();
-                                }
-                            }
-                        }
-                                    catch (Exception e){
-                                        e.printStackTrace();
-                                    }
-                                }
 
-                                @Override
-                                public void onError(ANError anError){
-                                    try {
-                                        if (anError.getErrorCode() == 0){
-                                            mensagem = "Problemas com a conexão!! \nTente Novamente.";
-                                        }
-                                        else {
-                                            JSONObject jsonObject = new JSONObject(anError.getErrorBody());
-                                            if (jsonObject.getJSONObject("RetornoDados").getInt("sucesso") == 0){
-                                                mensagem = "Usuário ou senha inválidos";
-                                            }
-                                        }
-                                        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this)
-                                                .setTitle("Aviso")
-                                                .setMessage(mensagem)
-                                                .setPositiveButton("OK",null);
-                                        builder.create().show();
-                                    }
-                                    catch (Exception e){
-                                        e.printStackTrace();
-                                    }
-                                    Log.d("BridgeUpdateService","error" + anError.getErrorCode() +anError.getErrorDetail());
-                                }
-
-
-                            });
-    }
 
 }
