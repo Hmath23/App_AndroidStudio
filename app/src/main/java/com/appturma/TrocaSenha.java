@@ -4,9 +4,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,42 +21,69 @@ import com.appturma.LoginActivity;
 import com.appturma.R;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class TrocaSenha extends AppCompatActivity {
 
-    private String apiTres = "http://10.0.2.2:8080/siteturma88/usuarios/trocar/";
+    private String apiPath = "http://10.0.2.2:8080/siteturma88/usuarios/trocar/";
     private JSONArray restulJsonArray;
     private int logado = 0;
     private String mensagem = "", strusuario = "", stremail = "", newSenha ="";
-    private TextView txtnome, txtemail, txtnomeuser;
-    EditText edtNovaSenha;
-    public String novaSenha;
+    private TextView txtemail, txtnomeuser;
+    EditText edtNovaSenha, edtNovaSenhaValidar ,edtSenhaAtual;
+    public String novaSenha, novaSenhaValidar, senhaAtual;
+    Button btnTroca;
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_troca_senha);
 
-        txtnome = findViewById(R.id.textViewNomeCompleto);
         txtnomeuser = findViewById(R.id.textViewNomeUsuario);
         txtemail = findViewById(R.id.textViewEmailUsuario);
 
+        edtSenhaAtual= findViewById(R.id.editTextSenhaAtual);
         edtNovaSenha = findViewById(R.id.editTextNovaSenha);
+        edtNovaSenhaValidar = findViewById(R.id.editTextNovaSenhaValidar);
 
         Intent login = getIntent();
-        txtnome.setText(String.valueOf(login.getStringExtra("nomecompleto")));
         txtnomeuser.setText(String.valueOf(login.getStringExtra("usuario")));
         txtemail.setText(String.valueOf(login.getStringExtra("email")));
 
-        novaSenha = edtNovaSenha.getText().toString();
+        btnTroca = findViewById(R.id.btnTroca);
+
+        AndroidNetworking.initialize(getApplicationContext());
+
+        btnTroca.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+
+                senhaAtual = edtSenhaAtual.getText().toString();
+                novaSenha = edtNovaSenha.getText().toString();
+                novaSenhaValidar = edtNovaSenhaValidar.getText().toString();
+
+                if (senhaAtual.isEmpty() || novaSenha.isEmpty() || novaSenhaValidar.isEmpty()){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(TrocaSenha.this)
+                            .setTitle("Erro")
+                            .setMessage("Favor preencher os campos")
+                            .setPositiveButton("OK",null);
+                    builder.create().show();
+                }
+
+                else {
+                    if (novaSenha.equals(novaSenhaValidar)){
+                        apiNovaSenha();
+                    }
+                }
+            }
+        });
     }
 
     protected void apiNovaSenha(){
-        AndroidNetworking.post(apiTres)
+        AndroidNetworking.post(apiPath)
                 .addBodyParameter("HTTP_ACCEPT","application/json")
-                .addBodyParameter("txtNomeUsuario",txtnome.getText().toString())
+                .addBodyParameter("txtNomeUsuario",txtnomeuser.getText().toString())
+                .addBodyParameter("txtSenhaUsuario",edtSenhaAtual.getText().toString())
                 .addBodyParameter("txtEmailUsuario",txtemail.getText().toString())
                 .addBodyParameter("txtNovaSenha", edtNovaSenha.getText().toString())
                 .setTag("test")
@@ -69,12 +98,33 @@ public class TrocaSenha extends AppCompatActivity {
                                 restulJsonArray = jsonObject.getJSONArray("RetornoDados");
                                 JSONObject jsonObj = null;
                                 jsonObj = restulJsonArray.getJSONObject(0);
-                                logado = jsonObj.getInt("sucesso");
-                                if (logado == 1) {
-                                    Intent login = new Intent(getApplicationContext(), LoginActivity.class);
-                                    startActivity(login);
-                                    finish();
+                                logado = jsonObj.getInt("plogado");
+                                switch (logado) {
+                                    case 1:
+                                        mensagem = "Sua senha de primeiro acesso foi alterada com sucesso, logue novamente";
+                                        break;
+                                    case 2:
+                                        mensagem = "Sua senha foi alterada com sucesso";
+                                        break;
                                 }
+                                AlertDialog.Builder builder = new AlertDialog.Builder(TrocaSenha.this)
+                                        .setTitle("Aviso")
+                                        .setMessage(mensagem)
+                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                if (logado == 1) {
+                                                    Intent login = new Intent(getApplicationContext(), LoginActivity.class);
+                                                    startActivity(login);
+                                                    finish();
+                                                } else if (logado == 2) {
+                                                    Intent base = new Intent(getApplicationContext(), BaseMenu.class);
+                                                    startActivity(base);
+                                                    finish();
+                                                }
+                                            }
+                                        });
+                                builder.create().show();
                             }
                         }
                         catch (Exception e){

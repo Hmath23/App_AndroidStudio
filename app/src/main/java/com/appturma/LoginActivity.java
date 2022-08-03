@@ -25,7 +25,6 @@ public class LoginActivity extends AppCompatActivity {
 
     // private String apiPath = "http://10.0.2.2/future-web/usuarios/listar/";
     private String apiPath = "http://10.0.2.2:8080/siteturma88/usuarios/listar/";
-    private String apiTres = "http://10.0.2.2:8080/siteturma88/usuarios/trocar/";
     private JSONArray restulJsonArray;
     private int logado = 0;
     private String mensagem = "", strusuario = "", stremail = "", newSenha ="";
@@ -99,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                                         mensagem = "Usuário já está conectado";
                                         break;
                                     case 3:
-                                        mensagem = "Primeiro acesso. Altere sua senha";
+                                        mensagem = "Primeiro acesso, portanto, altere sua senha";
                                         break;
                                 }
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this)
@@ -117,7 +116,6 @@ public class LoginActivity extends AppCompatActivity {
                                                 }
                                                 else if (logado == 3 ){
                                                     Intent troca = new Intent(getApplicationContext(),TrocaSenha.class);
-                                                    troca.putExtra("nomecompleto", strusuario.toString());
                                                     troca.putExtra("usuario", edtUsuario.getText().toString());
                                                     troca.putExtra("email", stremail.toString());
                                                     startActivity(troca);
