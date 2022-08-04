@@ -44,12 +44,12 @@
         android:id="@+id/editTextSenhaAtual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Digite sua senha atual"
-        android:inputType="textPassword"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/textViewEmailUsuario"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp"
+        android:hint="Digite sua senha atual"
+        android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/editTextNovaSenha"
@@ -79,7 +79,7 @@
         android:layout_below="@id/editTextNovaSenhaValidar"
         android:layout_centerHorizontal="true"
         android:background="@drawable/botao_arredondado"
-        android:text="Troca"
+        android:text="Atualizar senha"
         android:textColor="@color/pale_blue"
         android:textSize="20sp"
         android:layout_marginTop="40dp"/>

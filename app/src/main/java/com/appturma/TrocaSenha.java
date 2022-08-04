@@ -30,9 +30,8 @@ public class TrocaSenha extends AppCompatActivity {
     private JSONArray restulJsonArray;
     private int logado = 0;
     private String mensagem = "", strusuario = "", stremail = "", newSenha ="";
-    private TextView txtemail, txtnomeuser;
+    private TextView txtemail, txtnomeuser, txtnomecompleto;
     EditText edtNovaSenha, edtNovaSenhaValidar ,edtSenhaAtual;
-    public String novaSenha, novaSenhaValidar, senhaAtual;
     Button btnTroca;
 
     @Override
@@ -42,14 +41,16 @@ public class TrocaSenha extends AppCompatActivity {
 
         txtnomeuser = findViewById(R.id.textViewNomeUsuario);
         txtemail = findViewById(R.id.textViewEmailUsuario);
+        txtnomecompleto = findViewById(R.id.textViewNomeCompleto);
 
         edtSenhaAtual= findViewById(R.id.editTextSenhaAtual);
         edtNovaSenha = findViewById(R.id.editTextNovaSenha);
         edtNovaSenhaValidar = findViewById(R.id.editTextNovaSenhaValidar);
 
         Intent login = getIntent();
-        txtnomeuser.setText(String.valueOf(login.getStringExtra("usuario")));
+        txtnomeuser.setText(String.valueOf(login.getStringExtra("nomeuser")));
         txtemail.setText(String.valueOf(login.getStringExtra("email")));
+        txtnomecompleto.setText(String.valueOf(login.getStringExtra("nomecompleto")));
 
         btnTroca = findViewById(R.id.btnTroca);
 
@@ -57,6 +58,7 @@ public class TrocaSenha extends AppCompatActivity {
 
         btnTroca.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+                String novaSenha, novaSenhaValidar, senhaAtual;
 
                 senhaAtual = edtSenhaAtual.getText().toString();
                 novaSenha = edtNovaSenha.getText().toString();
@@ -74,6 +76,13 @@ public class TrocaSenha extends AppCompatActivity {
                     if (novaSenha.equals(novaSenhaValidar)){
                         apiNovaSenha();
                     }
+                    else{
+                        AlertDialog.Builder builder = new AlertDialog.Builder(TrocaSenha.this)
+                                .setTitle("Erro")
+                                .setMessage("As senhas não coincidem")
+                                .setPositiveButton("OK",null);
+                        builder.create().show();
+                    }
                 }
             }
         });
@@ -83,8 +92,8 @@ public class TrocaSenha extends AppCompatActivity {
         AndroidNetworking.post(apiPath)
                 .addBodyParameter("HTTP_ACCEPT","application/json")
                 .addBodyParameter("txtNomeUsuario",txtnomeuser.getText().toString())
-                .addBodyParameter("txtSenhaUsuario",edtSenhaAtual.getText().toString())
                 .addBodyParameter("txtEmailUsuario",txtemail.getText().toString())
+                .addBodyParameter("txtSenhaUsuario",edtSenhaAtual.getText().toString())
                 .addBodyParameter("txtNovaSenha", edtNovaSenha.getText().toString())
                 .setTag("test")
                 .setPriority(Priority.MEDIUM)
@@ -119,6 +128,9 @@ public class TrocaSenha extends AppCompatActivity {
                                                     finish();
                                                 } else if (logado == 2) {
                                                     Intent base = new Intent(getApplicationContext(), BaseMenu.class);
+                                                    base.putExtra("nomecompleto", txtnomecompleto.getText().toString());
+                                                    base.putExtra("email", txtemail.getText().toString());
+                                                    base.putExtra("nomeuser", txtnomeuser.getText().toString());
                                                     startActivity(base);
                                                     finish();
                                                 }

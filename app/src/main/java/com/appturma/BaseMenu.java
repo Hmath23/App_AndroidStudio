@@ -43,7 +43,7 @@ public class BaseMenu extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityBaseMenuBinding binding;
-    private TextView txtnome, txtemail;
+    private TextView txtnomecompleto, txtemail, txtnomeuser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,13 +65,15 @@ public class BaseMenu extends AppCompatActivity {
 
         //Referência ao cabeçalho do menu
         View headerView = navigationView.getHeaderView(0);
-        txtnome = headerView.findViewById(R.id.textViewNomeUsuario);
+        txtnomecompleto = headerView.findViewById(R.id.textViewNomeCompleto);
         txtemail = headerView.findViewById(R.id.textViewEmailUsuario);
+        txtnomeuser = headerView.findViewById(R.id.textViewNomeUsuario);
 
         //Recebe os dados do LoginActivity
         Intent login = getIntent();
-        txtnome.setText(String.valueOf(login.getStringExtra("usuario")));
+        txtnomecompleto.setText(String.valueOf(login.getStringExtra("nomecompleto")));
         txtemail.setText(String.valueOf(login.getStringExtra("email")));
+        txtnomeuser.setText(String.valueOf(login.getStringExtra("nomeuser")));
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -101,6 +103,14 @@ public class BaseMenu extends AppCompatActivity {
                             });
                     builder.create().show();
                 }
+                else if (item.getItemId() == R.id.nav_trocasenha){
+                    Intent troca = new Intent(getApplicationContext(),TrocaSenha.class);
+                    troca.putExtra("nomecompleto", txtnomecompleto.getText().toString());
+                    troca.putExtra("email", txtemail.getText().toString());
+                    troca.putExtra("nomeuser", txtnomeuser.getText().toString());
+                    startActivity(troca);
+                    finish();
+                }
                 return false;
             }
         });
@@ -125,7 +135,7 @@ public class BaseMenu extends AppCompatActivity {
     protected void sairApi(){
         AndroidNetworking.post(apiPath)
                 .addBodyParameter("HTTP_ACCEPT","application/json")
-                .addBodyParameter("txtNomeCompleto",txtnome.getText().toString())
+                .addBodyParameter("txtNomeCompleto",txtnomecompleto.getText().toString())
                 .addBodyParameter("txtEmail",txtemail.getText().toString())
                 .setTag("test")
                 .setPriority(Priority.MEDIUM)

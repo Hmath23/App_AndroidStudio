@@ -21,18 +21,24 @@
         app:srcCompat="@drawable/ic_receitas" />
 
     <TextView
-        android:id="@+id/textViewNomeUsuario"
+        android:id="@+id/textViewNomeCompleto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:textColor="@color/pale_blue"
         android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
     <TextView
         android:id="@+id/textViewEmailUsuario"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/pale_blue"
         android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/textViewNomeUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible" />
+
+
 </LinearLayout>

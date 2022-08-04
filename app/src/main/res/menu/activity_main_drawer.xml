@@ -29,6 +29,9 @@
             android:icon="@drawable/ic_menu_receitas"
             android:title="@string/menu_receitas"/>
         <item
+            android:id="@+id/nav_trocasenha"
+            android:title="@string/menu_trocasenha"/>
+        <item
             android:id="@+id/nav_logout"
             android:title="@string/menu_logout"/>
     </group>

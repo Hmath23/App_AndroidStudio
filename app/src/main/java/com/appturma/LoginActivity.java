@@ -27,8 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     private String apiPath = "http://10.0.2.2:8080/siteturma88/usuarios/listar/";
     private JSONArray restulJsonArray;
     private int logado = 0;
-    private String mensagem = "", strusuario = "", stremail = "", newSenha ="";
-    EditText edtUsuario,edtSenha;
+    private String mensagem = "", strnomecompleto = "", stremail = "";
+    EditText edtNomeUsuario,edtSenha;
     Button btnLogin;
 
     @Override
@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        edtUsuario = findViewById(R.id.editTextUsuario);
+        edtNomeUsuario = findViewById(R.id.editTextUsuario);
         edtSenha = findViewById(R.id.editTextSenha);
         btnLogin = findViewById(R.id.btnLogin);
 
@@ -44,12 +44,12 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLogin.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                String usuario,senha;
+                String nomeuser,senha;
 
-                usuario = edtUsuario.getText().toString();
+                nomeuser = edtNomeUsuario.getText().toString();
                 senha = edtSenha.getText().toString();
 
-                if (usuario.isEmpty() || senha.isEmpty()){
+                if (nomeuser.isEmpty() || senha.isEmpty()){
                     AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this)
                             .setTitle("Erro")
                             .setMessage("Favor preencher os campos")
@@ -64,13 +64,11 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
-
     protected void sendApi(){
         final View customLayout = getLayoutInflater().inflate(R.layout.custom_layout, null);
         AndroidNetworking.post(apiPath)
                 .addBodyParameter("HTTP_ACCEPT","application/json")
-                .addBodyParameter("txtNomeUsuario",edtUsuario.getText().toString())
+                .addBodyParameter("txtNomeUsuario",edtNomeUsuario.getText().toString())
                 .addBodyParameter("txtSenhaUsuario",edtSenha.getText().toString())
                 .setTag("test")
                 .setPriority(Priority.MEDIUM)
@@ -87,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                                 for (int i=0; i < restulJsonArray.length();i++){
                                     jsonObj = restulJsonArray.getJSONObject(i);
                                     logado = jsonObj.getInt("plogado");
-                                    strusuario = jsonObj.getString("pnomecompleto");
+                                    strnomecompleto = jsonObj.getString("pnomecompleto");
                                     stremail = jsonObj.getString("pemail");
                                 }
                                 switch (logado){
@@ -98,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                                         mensagem = "Usuário já está conectado";
                                         break;
                                     case 3:
-                                        mensagem = "Primeiro acesso, portanto, altere sua senha";
+                                        mensagem = "Este é seu primeiro acesso, portanto, altere sua senha";
                                         break;
                                 }
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this)
@@ -109,15 +107,17 @@ public class LoginActivity extends AppCompatActivity {
                                             public void onClick(DialogInterface dialogInterface, int i) {
                                                 if (logado == 1){
                                                     Intent base = new Intent(getApplicationContext(),BaseMenu.class);
-                                                    base.putExtra("usuario", strusuario.toString());
+                                                    base.putExtra("nomecompleto", strnomecompleto.toString());
                                                     base.putExtra("email", stremail.toString());
+                                                    base.putExtra("nomeuser", edtNomeUsuario.getText().toString());
                                                     startActivity(base);
                                                     finish();
                                                 }
                                                 else if (logado == 3 ){
                                                     Intent troca = new Intent(getApplicationContext(),TrocaSenha.class);
-                                                    troca.putExtra("usuario", edtUsuario.getText().toString());
+                                                    troca.putExtra("nomecompleto", strnomecompleto.toString());
                                                     troca.putExtra("email", stremail.toString());
+                                                    troca.putExtra("nomeuser", edtNomeUsuario.getText().toString());
                                                     startActivity(troca);
                                                     finish();
 
@@ -139,7 +139,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                             else {
                                 JSONObject jsonObject = new JSONObject(anError.getErrorBody());
-                                if (jsonObject.getJSONObject("RetornoDados").getInt("sucesso") == 0){
+                                if (jsonObject.getJSONObject("RetornoDados").getInt("logado") == 0){
                                     mensagem = "Usuário ou senha inválidos";
                                 }
                             }
