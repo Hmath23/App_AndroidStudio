@@ -29,7 +29,7 @@ public class TrocaSenha extends AppCompatActivity {
     private String apiPath = "http://10.0.2.2:8080/siteturma88/usuarios/trocar/";
     private JSONArray restulJsonArray;
     private int logado = 0;
-    private String mensagem = "", strusuario = "", stremail = "", newSenha ="";
+    private String mensagem = "";
     private TextView txtemail, txtnomeuser, txtnomecompleto;
     EditText edtNovaSenha, edtNovaSenhaValidar ,edtSenhaAtual;
     Button btnTroca;

@@ -4,20 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    android:layout_marginRight="@dimen/activity_horizontal_margin"
-    android:layout_marginTop="@dimen/activity_vertical_margin"
-    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@color/pale_blue"
     tools:context="TrocaSenha">
 
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewTrocaSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alterar senha"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/hookers_green"
+        android:shadowColor="@color/myrtle_green"
+        android:shadowDx="7"
+        android:shadowDy="7"
+        android:shadowRadius="20"
+        android:textStyle="bold"/>
     <TextView
         android:id="@+id/textViewNomeCompleto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:visibility="invisible"/>
 
@@ -25,29 +39,27 @@
         android:id="@+id/textViewNomeUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/textViewNomeCompleto"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:layout_below="@id/textViewTrocaSenha"
+        android:layout_marginStart="35dp"
         android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/textViewEmailUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/textViewNomeUsuario"
-        android:layout_marginTop="40dp"
-        android:visibility="invisible"
-        android:background="@color/pale_blue"/>
+        android:layout_marginTop="10dp"
+        android:visibility="invisible"/>
 
     <EditText
         android:id="@+id/editTextSenhaAtual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewEmailUsuario"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_below="@id/textViewTrocaSenha"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
         android:hint="Digite sua senha atual"
         android:inputType="textPassword" />
 
@@ -61,16 +73,17 @@
         android:layout_below="@id/editTextSenhaAtual"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="40dp"/>
+
     <EditText
         android:id="@+id/editTextNovaSenhaValidar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Confirme a nova Senha"
-        android:inputType="textPassword"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/editTextNovaSenha"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp"
+        android:hint="Confirme a nova Senha"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btnTroca"
@@ -79,7 +92,7 @@
         android:layout_below="@id/editTextNovaSenhaValidar"
         android:layout_centerHorizontal="true"
         android:background="@drawable/botao_arredondado"
-        android:text="Atualizar senha"
+        android:text="Atualizar"
         android:textColor="@color/pale_blue"
         android:textSize="20sp"
         android:layout_marginTop="40dp"/>

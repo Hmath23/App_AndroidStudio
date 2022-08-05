@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private JSONArray restulJsonArray;
     private int logado = 0;
     private String mensagem = "", strnomecompleto = "", stremail = "";
-    EditText edtNomeUsuario,edtSenha;
+    EditText edtNomeUsuario, edtSenha;
     Button btnLogin;
 
     @Override
