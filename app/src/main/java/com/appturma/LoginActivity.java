@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     // private String apiPath = "http://10.0.2.2/future-web/usuarios/listar/";
     private String apiPath = "http://10.0.2.2:8080/siteturma88/usuarios/listar/";
     private JSONArray restulJsonArray;
-    private int logado = 0;
+    private int logado = 0, resultado;
     private String mensagem = "", strnomecompleto = "", stremail = "";
     EditText edtNomeUsuario, edtSenha;
     Button btnLogin;
@@ -84,9 +84,16 @@ public class LoginActivity extends AppCompatActivity {
                                 JSONObject jsonObj = null;
                                 for (int i=0; i < restulJsonArray.length();i++){
                                     jsonObj = restulJsonArray.getJSONObject(i);
-                                    logado = jsonObj.getInt("plogado");
-                                    strnomecompleto = jsonObj.getString("pnomecompleto");
-                                    stremail = jsonObj.getString("pemail");
+                                    if (jsonObj.getInt("resultado") == 1){
+                                        logado = jsonObj.getInt("plogado");
+                                        strnomecompleto = jsonObj.getString("pnomecompleto");
+                                        stremail = jsonObj.getString("pemail");
+                                    }
+                                    else {
+                                        mensagem = "Usuário ou senha incorretos";
+                                    }
+                                    resultado = jsonObj.getInt("resultado");
+
                                 }
                                 switch (logado){
                                     case 1:
@@ -105,22 +112,28 @@ public class LoginActivity extends AppCompatActivity {
                                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialogInterface, int i) {
-                                                if (logado == 1){
-                                                    Intent base = new Intent(getApplicationContext(),BaseMenu.class);
-                                                    base.putExtra("nomecompleto", strnomecompleto.toString());
-                                                    base.putExtra("email", stremail.toString());
-                                                    base.putExtra("nomeuser", edtNomeUsuario.getText().toString());
-                                                    startActivity(base);
-                                                    finish();
+                                                if (resultado == 1) {
+                                                    switch (logado){
+                                                        case 1:
+                                                            Intent base = new Intent(getApplicationContext(), BaseMenu.class);
+                                                            base.putExtra("nomecompleto", strnomecompleto.toString());
+                                                            base.putExtra("email", stremail.toString());
+                                                            base.putExtra("nomeuser", edtNomeUsuario.getText().toString());
+                                                            startActivity(base);
+                                                            finish();
+                                                            break;
+                                                        case 3:
+                                                            Intent troca = new Intent(getApplicationContext(), TrocaSenha.class);
+                                                            troca.putExtra("nomecompleto", strnomecompleto.toString());
+                                                            troca.putExtra("email", stremail.toString());
+                                                            troca.putExtra("nomeuser", edtNomeUsuario.getText().toString());
+                                                            startActivity(troca);
+                                                            finish();
+                                                    }
                                                 }
-                                                else if (logado == 3 ){
-                                                    Intent troca = new Intent(getApplicationContext(),TrocaSenha.class);
-                                                    troca.putExtra("nomecompleto", strnomecompleto.toString());
-                                                    troca.putExtra("email", stremail.toString());
-                                                    troca.putExtra("nomeuser", edtNomeUsuario.getText().toString());
-                                                    startActivity(troca);
-                                                    finish();
-
+                                                else{
+                                                    edtNomeUsuario.setText("");
+                                                    edtSenha.setText("");
                                                 }
                                             }
                                         });

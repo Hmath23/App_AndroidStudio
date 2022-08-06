@@ -87,12 +87,11 @@ public class BaseMenu extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.nav_logout) {
-                    titulo = "Aviso";
+                if (item.getItemId() == R.id.nav_logout){
                     mensagem = "Deseja realmente sair?";
                     final View dialog = getLayoutInflater().inflate(R.layout.dialog_box,null);
                     AlertDialog.Builder builder = new AlertDialog.Builder(BaseMenu.this)
-                            .setTitle(titulo)
+                            .setTitle("Aviso")
                             .setMessage(mensagem)
                             .setNegativeButton("Não", null)
                             .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
@@ -103,13 +102,15 @@ public class BaseMenu extends AppCompatActivity {
                             });
                     builder.create().show();
                 }
-                else if (item.getItemId() == R.id.nav_trocasenha){
-                    Intent troca = new Intent(getApplicationContext(),TrocaSenha.class);
-                    troca.putExtra("nomecompleto", txtnomecompleto.getText().toString());
-                    troca.putExtra("email", txtemail.getText().toString());
-                    troca.putExtra("nomeuser", txtnomeuser.getText().toString());
-                    startActivity(troca);
-                    finish();
+                switch (item.getItemId()){
+                    case R.id.nav_trocasenha:
+                        Intent troca = new Intent(getApplicationContext(),TrocaSenha.class);
+                        troca.putExtra("nomecompleto", txtnomecompleto.getText().toString());
+                        troca.putExtra("email", txtemail.getText().toString());
+                        troca.putExtra("nomeuser", txtnomeuser.getText().toString());
+                        startActivity(troca);
+                        finish();
+                        break;
                 }
                 return false;
             }
@@ -155,14 +156,13 @@ public class BaseMenu extends AppCompatActivity {
                                     startActivity(login);
                                     finish();
                                 }
-
                                 else {
+                                    mensagem = "Houve um problema ao desconectar, tente novamente";
                                     AlertDialog.Builder builder = new AlertDialog.Builder(BaseMenu.this)
                                             .setTitle("Aviso")
                                             .setMessage(mensagem)
                                             .setPositiveButton("OK",null);
                                     builder.create().show();
-                                    mensagem = "Houve um problema ao desconectar, tente novamente";
                                 }
 
                             }

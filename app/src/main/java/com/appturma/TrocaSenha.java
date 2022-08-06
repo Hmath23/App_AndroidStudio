@@ -32,7 +32,7 @@ public class TrocaSenha extends AppCompatActivity {
     private String mensagem = "";
     private TextView txtemail, txtnomeuser, txtnomecompleto;
     EditText edtNovaSenha, edtNovaSenhaValidar ,edtSenhaAtual;
-    Button btnTroca;
+    Button btnTroca, btnVoltaMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,7 @@ public class TrocaSenha extends AppCompatActivity {
         txtnomecompleto.setText(String.valueOf(login.getStringExtra("nomecompleto")));
 
         btnTroca = findViewById(R.id.btnTroca);
+        btnVoltaMenu = findViewById(R.id.btnVoltaMenu);
 
         AndroidNetworking.initialize(getApplicationContext());
 
@@ -84,6 +85,18 @@ public class TrocaSenha extends AppCompatActivity {
                         builder.create().show();
                     }
                 }
+            }
+        });
+
+        btnVoltaMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent base = new Intent(getApplicationContext(), BaseMenu.class);
+                base.putExtra("nomecompleto", txtnomecompleto.getText().toString());
+                base.putExtra("email", txtemail.getText().toString());
+                base.putExtra("nomeuser", txtnomeuser.getText().toString());
+                startActivity(base);
+                finish();
             }
         });
     }

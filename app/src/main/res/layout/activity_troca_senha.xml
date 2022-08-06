@@ -21,35 +21,30 @@
         android:layout_height="wrap_content"
         android:text="Alterar senha"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/hookers_green"
         android:shadowColor="@color/myrtle_green"
         android:shadowDx="7"
         android:shadowDy="7"
         android:shadowRadius="20"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+
     <TextView
         android:id="@+id/textViewNomeCompleto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/textViewNomeUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:textStyle="bold"
-        android:layout_below="@id/textViewTrocaSenha"
-        android:layout_marginStart="35dp"
         android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/textViewEmailUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:visibility="invisible"/>
 
     <EditText
@@ -71,7 +66,7 @@
         android:inputType="textPassword"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/editTextSenhaAtual"
-        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"/>
 
     <EditText
@@ -80,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextNovaSenha"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
         android:hint="Confirme a nova Senha"
         android:inputType="textPassword" />
@@ -90,11 +85,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextNovaSenhaValidar"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/botao_arredondado"
         android:text="Atualizar"
         android:textColor="@color/pale_blue"
         android:textSize="20sp"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="25dp"/>
+
+    <Button
+        android:id="@+id/btnVoltaMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/btnTroca"
+        android:background="@drawable/botao_arredondado"
+        android:text="Voltar"
+        android:textColor="@color/pale_blue"
+        android:textSize="20sp"
+        android:layout_marginTop="320dp"
+        android:layout_marginLeft="40dp"/>
+
 </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
