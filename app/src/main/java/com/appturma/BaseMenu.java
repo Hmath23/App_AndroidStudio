@@ -1,13 +1,18 @@
 package com.appturma;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,11 +20,13 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
+import com.appturma.databinding.FragmentPrincipalBinding;
 import com.appturma.ui.principal.PrincipalFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -39,7 +46,7 @@ public class BaseMenu extends AppCompatActivity {
     private String apiPath = "http://10.0.2.2:8080/siteturma88/usuarios/sair/";
     private JSONArray resultJsonArray;
     private int logado = 0;
-    private String mensagem, titulo;
+    private String mensagem;
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityBaseMenuBinding binding;
@@ -85,6 +92,7 @@ public class BaseMenu extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.nav_logout){
@@ -110,6 +118,12 @@ public class BaseMenu extends AppCompatActivity {
                         troca.putExtra("nomeuser", txtnomeuser.getText().toString());
                         startActivity(troca);
                         finish();
+                        break;
+                    case R.id.nav_petar:
+                        break;
+                    case R.id.nav_principal:
+                        break;
+                    case R.id.nav_receitas:
                         break;
                 }
                 return false;

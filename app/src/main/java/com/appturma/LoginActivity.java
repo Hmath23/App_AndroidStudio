@@ -129,6 +129,7 @@ public class LoginActivity extends AppCompatActivity {
                                                             troca.putExtra("nomeuser", edtNomeUsuario.getText().toString());
                                                             startActivity(troca);
                                                             finish();
+                                                            break;
                                                     }
                                                 }
                                                 else{
