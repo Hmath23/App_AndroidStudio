@@ -10,8 +10,8 @@
         android:icon="@drawable/ic_dashboard"
         android:title="@string/menu_dashboard"/>
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications"
-        android:title="@string/menu_notifica"/>
+        android:id="@+id/navigation_user"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="@string/menu_user"/>
 
 </menu>

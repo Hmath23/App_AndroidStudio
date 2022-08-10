@@ -29,7 +29,7 @@ public class TrocaSenha extends AppCompatActivity {
     private String apiPath = "http://10.0.2.2:8080/siteturma88/usuarios/trocar/";
     private JSONArray restulJsonArray;
     private int logado = 0;
-    private String mensagem = "";
+    private String mensagem = "", telaorigem = "";
     private TextView txtemail, txtnomeuser, txtnomecompleto;
     EditText edtNovaSenha, edtNovaSenhaValidar ,edtSenhaAtual;
     Button btnTroca, btnVoltaMenu;
@@ -51,6 +51,8 @@ public class TrocaSenha extends AppCompatActivity {
         txtnomeuser.setText(String.valueOf(login.getStringExtra("nomeuser")));
         txtemail.setText(String.valueOf(login.getStringExtra("email")));
         txtnomecompleto.setText(String.valueOf(login.getStringExtra("nomecompleto")));
+
+        telaorigem = String.valueOf(login.getStringExtra("telaorigem"));
 
         btnTroca = findViewById(R.id.btnTroca);
         btnVoltaMenu = findViewById(R.id.btnVoltaMenu);
@@ -91,12 +93,19 @@ public class TrocaSenha extends AppCompatActivity {
         btnVoltaMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent base = new Intent(getApplicationContext(), BaseMenu.class);
-                base.putExtra("nomecompleto", txtnomecompleto.getText().toString());
-                base.putExtra("email", txtemail.getText().toString());
-                base.putExtra("nomeuser", txtnomeuser.getText().toString());
-                startActivity(base);
-                finish();
+                if (telaorigem.equals("2")) {
+                    Intent base = new Intent(getApplicationContext(), BaseMenu.class);
+                    base.putExtra("nomecompleto", txtnomecompleto.getText().toString());
+                    base.putExtra("email", txtemail.getText().toString());
+                    base.putExtra("nomeuser", txtnomeuser.getText().toString());
+                    startActivity(base);
+                    finish();
+                }
+                else {
+                    Intent login = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(login);
+                    finish();
+                }
             }
         });
     }
@@ -180,7 +189,6 @@ public class TrocaSenha extends AppCompatActivity {
                         }
                         Log.d("BridgeUpdateService","error" + anError.getErrorCode() +anError.getErrorDetail());
                     }
-
 
                 });
     }

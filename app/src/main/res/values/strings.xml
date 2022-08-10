@@ -15,10 +15,12 @@
 
     <string name="menu_petar">Petar</string>
     <string name="menu_receitas">Receitas</string>
+
     <string name="menu_principal">Principal</string>
 
     <string name="menu_dashboard">Dashboard</string>
-    <string name="menu_notifica">Notificações</string>
+    <string name="menu_user">Perfil</string>
+
     <string name="menu_logout">Desconectar</string>
     <string name="menu_trocasenha">Alterar minha senha</string>
 

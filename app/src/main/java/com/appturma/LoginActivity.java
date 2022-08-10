@@ -82,29 +82,31 @@ public class LoginActivity extends AppCompatActivity {
                             if (jsonObject != null){
                                 restulJsonArray = jsonObject.getJSONArray("RetornoDados");
                                 JSONObject jsonObj = null;
-                                for (int i=0; i < restulJsonArray.length();i++){
-                                    jsonObj = restulJsonArray.getJSONObject(i);
-                                    if (jsonObj.getInt("resultado") == 1){
+                                jsonObj = restulJsonArray.getJSONObject(0);
+
+                                resultado = jsonObj.getInt("resultado");
+
+                                if (jsonObj.getInt("resultado") == 1) {
+                                    for (int i = 0; i < restulJsonArray.length(); i++) {
+                                        jsonObj = restulJsonArray.getJSONObject(i);
                                         logado = jsonObj.getInt("plogado");
                                         strnomecompleto = jsonObj.getString("pnomecompleto");
                                         stremail = jsonObj.getString("pemail");
                                     }
-                                    else {
-                                        mensagem = "Usuário ou senha incorretos";
+                                    switch (logado) {
+                                        case 1:
+                                            mensagem = "Bem vindo ao Sistema";
+                                            break;
+                                        case 2:
+                                            mensagem = "Usuário já está conectado";
+                                            break;
+                                        case 3:
+                                            mensagem = "Este é seu primeiro acesso, portanto, altere sua senha";
+                                            break;
                                     }
-                                    resultado = jsonObj.getInt("resultado");
-
                                 }
-                                switch (logado){
-                                    case 1:
-                                        mensagem = "Bem vindo ao Sistema";
-                                        break;
-                                    case 2:
-                                        mensagem = "Usuário já está conectado";
-                                        break;
-                                    case 3:
-                                        mensagem = "Este é seu primeiro acesso, portanto, altere sua senha";
-                                        break;
+                                else {
+                                    mensagem = "Usuário ou senha incorretos";
                                 }
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this)
                                         .setTitle("Aviso")
@@ -124,6 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                                                             break;
                                                         case 3:
                                                             Intent troca = new Intent(getApplicationContext(), TrocaSenha.class);
+                                                            troca.putExtra("telaorigem", "3");
                                                             troca.putExtra("nomecompleto", strnomecompleto.toString());
                                                             troca.putExtra("email", stremail.toString());
                                                             troca.putExtra("nomeuser", edtNomeUsuario.getText().toString());
