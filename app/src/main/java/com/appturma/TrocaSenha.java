@@ -57,6 +57,10 @@ public class TrocaSenha extends AppCompatActivity {
         btnTroca = findViewById(R.id.btnTroca);
         btnVoltaMenu = findViewById(R.id.btnVoltaMenu);
 
+        if (telaorigem.equals("2")) {
+            btnVoltaMenu.setVisibility(View.VISIBLE);
+        }
+
         AndroidNetworking.initialize(getApplicationContext());
 
         btnTroca.setOnClickListener(new View.OnClickListener(){
@@ -93,19 +97,12 @@ public class TrocaSenha extends AppCompatActivity {
         btnVoltaMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (telaorigem.equals("2")) {
                     Intent base = new Intent(getApplicationContext(), BaseMenu.class);
                     base.putExtra("nomecompleto", txtnomecompleto.getText().toString());
                     base.putExtra("email", txtemail.getText().toString());
                     base.putExtra("nomeuser", txtnomeuser.getText().toString());
                     startActivity(base);
                     finish();
-                }
-                else {
-                    Intent login = new Intent(getApplicationContext(), LoginActivity.class);
-                    startActivity(login);
-                    finish();
-                }
             }
         });
     }

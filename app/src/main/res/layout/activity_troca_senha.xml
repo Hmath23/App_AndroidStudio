@@ -87,6 +87,7 @@
         android:layout_below="@id/editTextNovaSenhaValidar"
         android:background="@drawable/botao_arredondado"
         android:text="Atualizar"
+        android:layout_centerHorizontal="true"
         android:textColor="@color/pale_blue"
         android:textSize="20sp"
         android:layout_marginTop="40dp"
@@ -96,13 +97,15 @@
         android:id="@+id/btnVoltaMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/btnTroca"
+        android:layout_below="@id/btnTroca"
         android:background="@drawable/botao_arredondado"
         android:text="Voltar"
         android:textColor="@color/pale_blue"
         android:textSize="20sp"
-        android:layout_marginTop="320dp"
-        android:layout_marginLeft="40dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:visibility="invisible"/>
 
 </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
