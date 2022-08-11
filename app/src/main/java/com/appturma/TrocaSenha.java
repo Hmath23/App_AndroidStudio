@@ -170,10 +170,7 @@ public class TrocaSenha extends AppCompatActivity {
                                 mensagem = "Problemas com a conexão!! \nTente Novamente.";
                             }
                             else {
-                                JSONObject jsonObject = new JSONObject(anError.getErrorBody());
-                                if (jsonObject.getJSONObject("RetornoDados").getInt("sucesso") == 0){
-                                    mensagem = "Usuário ou senha inválidos";
-                                }
+                                mensagem = "Erro - Por Favor contate o adiministrador" +  anError.getErrorCode() ;
                             }
                             AlertDialog.Builder builder = new AlertDialog.Builder(TrocaSenha.this)
                                     .setTitle("Aviso")
