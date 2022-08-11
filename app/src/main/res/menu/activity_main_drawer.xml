@@ -19,7 +19,7 @@
         <item
             android:id="@+id/nav_principal"
             android:icon="@drawable/ic_menu_principal"
-            android:title="@string/menu_principal"/> -->
+            android:title="@string/menu_principal"/>-->
         <item
             android:id="@+id/nav_petar"
             android:icon="@drawable/ic_menu_petar"
@@ -30,9 +30,11 @@
             android:title="@string/menu_receitas"/>
         <item
             android:id="@+id/nav_trocasenha"
+            android:icon="@drawable/ic_baseline_vpn_key_24"
             android:title="@string/menu_trocasenha"/>
         <item
             android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_desconectar"
             android:title="@string/menu_logout"/>
     </group>
 </menu>

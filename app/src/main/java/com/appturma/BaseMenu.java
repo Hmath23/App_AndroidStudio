@@ -168,20 +168,21 @@ public class BaseMenu extends AppCompatActivity {
                                 JSONObject jsonObj = null;
                                 jsonObj = resultJsonArray.getJSONObject(0);
                                 logado = jsonObj.getInt("plogado");
-                                if (logado == 1){
-                                    Intent login = new Intent(getApplicationContext(),LoginActivity.class);
-                                    startActivity(login);
-                                    finish();
-                                }
-                                else {
-                                    mensagem = "Houve um problema ao desconectar, tente novamente";
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(BaseMenu.this)
-                                            .setTitle("Aviso")
-                                            .setMessage(mensagem)
-                                            .setPositiveButton("OK",null);
-                                    builder.create().show();
-                                }
+                                switch (logado){
+                                    case 1:
+                                        Intent login = new Intent(getApplicationContext(),LoginActivity.class);
+                                        startActivity(login);
+                                        finish();
+                                        break;
+                                    case 2:
+                                        mensagem = "Houve um problema ao desconectar, tente novamente";
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(BaseMenu.this)
+                                                .setTitle("Aviso")
+                                                .setMessage(mensagem)
+                                                .setPositiveButton("OK",null);
+                                        builder.create().show();
 
+                                }
                             }
                         }
                         catch (Exception e){

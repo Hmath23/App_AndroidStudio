@@ -78,7 +78,6 @@ public class TrocaSenha extends AppCompatActivity {
                             .setPositiveButton("OK",null);
                     builder.create().show();
                 }
-
                 else {
                     if (novaSenha.equals(novaSenhaValidar)){
                         apiNovaSenha();
@@ -141,17 +140,20 @@ public class TrocaSenha extends AppCompatActivity {
                                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialogInterface, int i) {
-                                                if (logado == 1) {
-                                                    Intent login = new Intent(getApplicationContext(), LoginActivity.class);
-                                                    startActivity(login);
-                                                    finish();
-                                                } else if (logado == 2) {
-                                                    Intent base = new Intent(getApplicationContext(), BaseMenu.class);
-                                                    base.putExtra("nomecompleto", txtnomecompleto.getText().toString());
-                                                    base.putExtra("email", txtemail.getText().toString());
-                                                    base.putExtra("nomeuser", txtnomeuser.getText().toString());
-                                                    startActivity(base);
-                                                    finish();
+                                                switch (logado){
+                                                    case 1:
+                                                        Intent login = new Intent(getApplicationContext(), LoginActivity.class);
+                                                        startActivity(login);
+                                                        finish();
+                                                        break;
+                                                    case 2:
+                                                        Intent base = new Intent(getApplicationContext(), BaseMenu.class);
+                                                        base.putExtra("nomecompleto", txtnomecompleto.getText().toString());
+                                                        base.putExtra("email", txtemail.getText().toString());
+                                                        base.putExtra("nomeuser", txtnomeuser.getText().toString());
+                                                        startActivity(base);
+                                                        finish();
+                                                        break;
                                                 }
                                             }
                                         });
